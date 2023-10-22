@@ -1125,6 +1125,8 @@ GameObject:
   - component: {fileID: 414521301}
   - component: {fileID: 414521300}
   - component: {fileID: 414521299}
+  - component: {fileID: 414521305}
+  - component: {fileID: 414521304}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -1158,7 +1160,8 @@ MonoBehaviour:
     height: 859
   selectedBlocks:
   - {fileID: 414521300}
-  selectedCommands: []
+  selectedCommands:
+  - {fileID: 414521304}
   variables: []
   description: 
   stepPause: 0
@@ -1193,7 +1196,7 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 0}
@@ -1223,6 +1226,8 @@ MonoBehaviour:
   eventHandler: {fileID: 0}
   commandList:
   - {fileID: 414521299}
+  - {fileID: 414521305}
+  - {fileID: 414521304}
   suppressAllAutoSelections: 0
 --- !u!114 &414521301
 MonoBehaviour:
@@ -1280,6 +1285,43 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &414521304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414521297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00d03ae0919f04264b018681ed534177, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 4
+  indentLevel: 0
+  _sceneName:
+    stringRef: {fileID: 0}
+    stringVal: TitleScreen
+  loadingImage: {fileID: 0}
+  sceneNameOLD: 
+--- !u!114 &414521305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414521297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 3
+  indentLevel: 0
+  _duration:
+    floatRef: {fileID: 0}
+    floatVal: 3
+  durationOLD: 0
 --- !u!1 &463894209
 GameObject:
   m_ObjectHideFlags: 0
