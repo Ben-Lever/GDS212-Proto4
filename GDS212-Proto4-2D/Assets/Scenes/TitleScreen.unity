@@ -360,8 +360,6 @@ GameObject:
   - component: {fileID: 2029157221}
   - component: {fileID: 2029157220}
   - component: {fileID: 2029157219}
-  - component: {fileID: 2029157218}
-  - component: {fileID: 2029157217}
   - component: {fileID: 2029157228}
   m_Layer: 0
   m_Name: Flowchart
@@ -370,38 +368,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2029157217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2029157216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 000864f8e9e1748a39807861d0e60e29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parentBlock: {fileID: 2029157220}
-  suppressBlockAutoSelect: 0
-  keyPressType: 0
-  keyCode: 97
---- !u!114 &2029157218
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2029157216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 000864f8e9e1748a39807861d0e60e29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parentBlock: {fileID: 2029157221}
-  suppressBlockAutoSelect: 0
-  keyPressType: 0
-  keyCode: 119
 --- !u!114 &2029157219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -439,7 +405,7 @@ MonoBehaviour:
   itemId: 4
   blockName: Close Game
   description: 
-  eventHandler: {fileID: 2029157217}
+  eventHandler: {fileID: 0}
   commandList:
   - {fileID: 2029157219}
   suppressAllAutoSelections: 0
@@ -457,8 +423,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 398
-    y: 203
+    x: 401
+    y: 202
     width: 114.666664
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -466,7 +432,7 @@ MonoBehaviour:
   itemId: 3
   blockName: Start Game
   description: 
-  eventHandler: {fileID: 2029157218}
+  eventHandler: {fileID: 0}
   commandList:
   - {fileID: 2029157228}
   suppressAllAutoSelections: 0
@@ -588,9 +554,8 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 2029157221}
-  selectedCommands:
-  - {fileID: 2029157228}
+  - {fileID: 2029157220}
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
