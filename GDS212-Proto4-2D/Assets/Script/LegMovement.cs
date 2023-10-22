@@ -5,34 +5,49 @@ using UnityEngine;
 public class LegMovement : MonoBehaviour
 {
     private KeyCode makeyInput;
-    private float moveSpeed = 1f;
+    public float moveSpeed = 3f;
     private string thisObject;
+    private Rigidbody2D rb;
+    private SpriteRenderer rend;
+
+    public Color stoppedColor = Color.red;
+    public Color movingColor = Color.green;
 
     // Start is called before the first frame update
     void Start()
     {
         thisObject = gameObject.name;
+        rb = GetComponent<Rigidbody2D>();
+        rend = GetComponent<SpriteRenderer>();
         FindMakeyInput();
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+        // Calculate the forward vector based on the object's rotation
+        Vector2 forwardVector = transform.up;
+
+        // Move the object forward using Rigidbody2D and the calculated forward vector
+        rb.velocity = forwardVector * moveSpeed;
+
 
 
         if (Input.GetKey(makeyInput))
         {
             moveSpeed = 0f;
+            rend.color = stoppedColor;
             Debug.Log("Input '" + makeyInput + "' pressed, " + thisObject + " stopped");
         }
         else
         {
-            moveSpeed = 1f;
+            moveSpeed = 3f;
+            rend.color = movingColor;
         }
         if (Input.GetKeyUp(makeyInput))
         {
-            moveSpeed = 1f;
+            moveSpeed = 3f;
+            rend.color = movingColor;
         }
     }
 
