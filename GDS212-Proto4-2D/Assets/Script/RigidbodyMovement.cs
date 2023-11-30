@@ -6,27 +6,59 @@ public class RigidbodyMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
 
-    
-
     public float moveSpeed, turnSpeed = 0.1f;
 
     private int legsActive, legsTilt;
 
+    public bool canMove = true;
+    public List<GameObject> ignoreCollisions;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-
-    void Update()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        //Rigidbodies have to set new coordinates
-        //although in code calculate the movement
-        
-        
+        Debug.Log("bonk " + collision);
+        foreach (GameObject collide in ignoreCollisions)
+        {
+            if (collision.gameObject == collide)
+            {
+                return;
+            }
+        }
+        StartCoroutine(Bonk());
+    }
+
+    IEnumerator Bonk()
+    {
+        canMove = false;
+        for (int i = 0; i < 80; i++)
+        {
+            yield return new WaitForFixedUpdate();
+            rb.MovePosition(transform.position + (-transform.up) / 20);
+        }
+        yield return new WaitForSeconds(0.1f);
+
+        canMove = true;
+
+        yield return null;
+    }
+
+    void FixedUpdate()
+    {
+        if (canMove)
+        {
+            PlayerMove();
+        }
+    }
+
+    private void PlayerMove()
+    {
         legsActive = 0;
         legsTilt = 0;
+        
 
         if (Input.GetKey(KeyCode.Q))
         {
@@ -64,6 +96,4 @@ public class RigidbodyMovement : MonoBehaviour
 
         rb.MovePosition(transform.position + (transform.up * moveSpeed * legsActive / 20));
     }
-
-    
 }
