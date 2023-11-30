@@ -10,6 +10,7 @@ public class RigidbodyMovement : MonoBehaviour
 
     public float moveSpeed, turnSpeed = 0.1f;
 
+    private int legsActive, legsTilt;
 
 
     void Start()
@@ -22,16 +23,46 @@ public class RigidbodyMovement : MonoBehaviour
     {
         //Rigidbodies have to set new coordinates
         //although in code calculate the movement
-        rb.MovePosition(transform.position + (transform.up * moveSpeed));
+        
+        
+        legsActive = 0;
+        legsTilt = 0;
 
+        if (Input.GetKey(KeyCode.Q))
+        {
+            legsActive++;
+            legsTilt--;
+        }
+        if (Input.GetKey(KeyCode.W))
+        {
+            legsActive++;
+            legsTilt++;
+        }
         if (Input.GetKey(KeyCode.A))
         {
-            rb.MoveRotation(rb.rotation + turnSpeed);
+            legsActive++;
+            legsTilt--;
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.S))
         {
-            rb.MoveRotation(rb.rotation - turnSpeed);
+            legsActive++;
+            legsTilt++;
         }
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            legsActive++;
+            legsTilt--;
+        }
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            legsActive++;
+            legsTilt++;
+        }
+
+        //negative just cos I don't wanna rewrite above stuff
+        rb.MoveRotation(rb.rotation - turnSpeed * legsTilt / 10);
+
+        rb.MovePosition(transform.position + (transform.up * moveSpeed * legsActive / 20));
     }
 
     
