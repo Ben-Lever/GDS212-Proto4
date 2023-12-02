@@ -3,20 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Timer : MonoBehaviour
+public class PillBugTracker : MonoBehaviour
 {
-    public float time = 0;
     private TextMeshProUGUI text;
+    private int pillbugsCollected;
     // Start is called before the first frame update
     void Start()
     {
         text = GetComponent<TextMeshProUGUI>();
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    public void bugCollected()
     {
-        time += Time.fixedDeltaTime;
-        text.text = "Time:\n" + time.ToString("0.0");
+        pillbugsCollected += 1;
+        text.text = "Pillbugs\n" + pillbugsCollected.ToString("0");
     }
 }
