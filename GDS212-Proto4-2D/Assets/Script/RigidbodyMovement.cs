@@ -13,9 +13,12 @@ public class RigidbodyMovement : MonoBehaviour
     public bool canMove = true;
     public List<GameObject> ignoreCollisions;
 
+    public AudioSource bonk;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -34,6 +37,8 @@ public class RigidbodyMovement : MonoBehaviour
     IEnumerator Bonk()
     {
         canMove = false;
+        //bonk noise
+        bonk.Play();
         for (int i = 0; i < 80; i++)
         {
             yield return new WaitForFixedUpdate();

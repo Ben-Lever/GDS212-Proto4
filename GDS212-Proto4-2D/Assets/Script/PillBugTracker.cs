@@ -6,7 +6,7 @@ using TMPro;
 public class PillBugTracker : MonoBehaviour
 {
     private TextMeshProUGUI text;
-    private int pillbugsCollected;
+    public int pillbugsCollected;
     // Start is called before the first frame update
     void Start()
     {
