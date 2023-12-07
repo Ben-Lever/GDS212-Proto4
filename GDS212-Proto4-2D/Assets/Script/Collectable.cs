@@ -65,53 +65,6 @@ public class Collectable : MonoBehaviour
                 return;
             }
         }
-        { 
-        /*foreach (GameObject want in collectable)
-        {
-            if (want == collision.gameObject)
-            {
-                //Emit Particles on find
-                GameObject particleEffect = Instantiate(particles, transform.position, Quaternion.identity);
-                Destroy(particleEffect, 10f);
-
-                //play sound
-                audioSound.Play();
-
-                //Grant time bonus
-                timer.GetComponent<Timer>().time -= 15f;
-
-                //update text
-                pillbugCollector.GetComponent<PillBugTracker>().bugCollected();
-
-                //Removes at end of frame to not throw errors
-                StartCoroutine(RemoveStuff(want, collectable));
-                return;
-            }
-        }
-        foreach (GameObject want in keyItem)
-        {
-            if (want == collision.gameObject)
-            {
-                //Emit Particles on find
-                GameObject particleEffect = Instantiate(particles, transform.position, Quaternion.identity);
-                Destroy(particleEffect, 10f);
-
-                //play sound
-                audioSound.Play();
-
-                //Grant time bonus
-                //timer.GetComponent<Timer>().time -= 15f;
-
-                //update text
-                keyItemCollector.GetComponent<KeyItemTracker>().ItemCollected();
-
-                //Removes at end of frame to not throw errors
-                StartCoroutine(RemoveStuff(want, keyItem));
-                return;
-            }
-        }
-        */
-    }
     }
 
     private IEnumerator RemoveStuff(GameObject removeThis, List<GameObject> fromHere)
