@@ -10,6 +10,8 @@ public class LegToggle : MonoBehaviour
     public Color movingColor = Color.green;
     public KeyCode keyInput;
     public Animator spriteAnimation;
+    public enum SideOfBodyEnum { None,Left,Right };
+    public SideOfBodyEnum sideOfBody;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,12 +30,27 @@ public class LegToggle : MonoBehaviour
             rend.color = stoppedColor;
 
             spriteAnimation.SetBool("Moving", true);
+            switch (sideOfBody)
+            {
+                case SideOfBodyEnum.Left:
+                    spriteAnimation.SetBool("Left", true);
+                    break;
+                case SideOfBodyEnum.Right:
+                    spriteAnimation.SetBool("Right", true);
+                    break;
+                default:
+                    Debug.Log("SideOfBody not assigned");
+                    break;
+            }
+  
         }
         else
         { 
             rend.color = movingColor;
 
             spriteAnimation.SetBool("Moving", false);
+            spriteAnimation.SetBool("Left", false);
+            spriteAnimation.SetBool("Right", false);
         }
     }
 }
