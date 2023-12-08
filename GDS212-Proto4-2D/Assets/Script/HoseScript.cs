@@ -9,6 +9,17 @@ public class HoseScript : MonoBehaviour
     private float toggleInterval = 5f;
     private float timer = 0f;
 
+    private SpriteRenderer rend;
+    public Animator spriteAnimation;
+    private bool currentState;
+
+    private void Start()
+    {
+        rend = GetComponent<SpriteRenderer>();
+        spriteAnimation = GetComponent<Animator>();
+        currentState = spriteAnimation.GetBool("IsOn");
+    }
+
     private void Update()
     {
         // Update the timer
@@ -26,5 +37,6 @@ public class HoseScript : MonoBehaviour
     {
         isActive = !isActive; // Toggle the active state
         HoseWater.SetActive(isActive); // Set the object's active state
+        spriteAnimation.SetBool("IsOn", !currentState);
     }
 }
