@@ -101,4 +101,9 @@ public class RigidbodyMovement : MonoBehaviour
 
         rb.MovePosition(transform.position + (transform.up * moveSpeed * legsActive / 20));
     }
+
+    public void MoveOnOff()
+    {
+        canMove = !canMove;
+    }
 }
