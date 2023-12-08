@@ -5,17 +5,20 @@ using UnityEngine;
 public class AntWalking : MonoBehaviour
 {
     public Transform objectToMove;
+    public GameObject antLocation1;
     public Vector2 targetPosition;
     private float moveDuration = 7f; // Duration of the movement in seconds
 
-    private Vector2 initialPosition;
+    public Vector2 initialPosition;
     private float startTime;
 
     private void Start()
     {
         objectToMove = transform;
 
-        initialPosition = GameObject.Find("AntLocation1").transform.position;
+        targetPosition = GameObject.Find("AntLocation1").transform.position;
+        antLocation1 = GameObject.Find("AntLocation1");
+        initialPosition = antLocation1.GetComponent<AntsSpawing>().spawnPosition;
         startTime = Time.time;
 
         StartCoroutine(MoveObject());
@@ -36,5 +39,6 @@ public class AntWalking : MonoBehaviour
 
         // Ensure that the object reaches the exact target position at the end.
         objectToMove.position = targetPosition;
+        Destroy(gameObject);
     }
 }
