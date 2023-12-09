@@ -16,9 +16,9 @@ public class AntWalking : MonoBehaviour
     {
         objectToMove = transform;
 
-        targetPosition = GameObject.Find("AntLocation1").transform.position;
-        antLocation1 = GameObject.Find("AntLocation1");
-        initialPosition = antLocation1.GetComponent<AntsSpawing>().spawnPosition;
+        //targetPosition = GameObject.Find("AntLocation1").transform.position;
+        //antLocation1 = GameObject.Find("AntLocation1");
+        //initialPosition = antLocation1.GetComponent<AntsSpawing>().thisSpawnPosition;
         startTime = Time.time;
 
         StartCoroutine(MoveObject());
