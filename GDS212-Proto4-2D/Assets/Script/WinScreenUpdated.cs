@@ -24,11 +24,14 @@ public class WinScreenUpdated : MonoBehaviour
     //Will cause the UI to slide onscreen
     public RectTransform uiContainer; // Reference to the RectTransform of the UI container
     public float onScreenPositionX = 0; // X-coordinate when onscreen
-    public float offScreenPositionX = -500; // X-coordinate when offscreen
+    public float offScreenPositionX = -800; // X-coordinate when offscreen
     public float moveDuration = 0.25f; // Duration of the movement in seconds
     private Vector2 startPosition;
     private Vector2 onScreenPosition;
     private Vector2 offScreenPosition;
+
+    //Centipede Head
+    public GameObject CentipedeHead;
 
     void Start()
     {
@@ -36,13 +39,20 @@ public class WinScreenUpdated : MonoBehaviour
         onScreenPosition = new Vector2(onScreenPositionX, uiContainer.anchoredPosition.y);
         offScreenPosition = new Vector2(offScreenPositionX, uiContainer.anchoredPosition.y);
 
-        FinalTimeText.text = Timer.GetComponentInChildren<Timer>().text.text;
-        FinalObjectiveText.text = ObjectiveTracker.GetComponentInChildren<KeyItemTracker>().text.text;
-        FinalSnackText.text = SnacksTracker.GetComponentInChildren<PillBugTracker>().text.text;
+
+    }
+
+    public void TurnOnWinScreen()
+    {
+        StartCoroutine(MoveUi());
     }
 
     public void TurnOffUI()
     {
+        FinalTimeText.text = Timer.GetComponent<Timer>().text.text;
+        FinalObjectiveText.text = ObjectiveTracker.GetComponent<KeyItemTracker>().text.text;
+        FinalSnackText.text = SnacksTracker.GetComponent<PillBugTracker>().text.text;
+
         //Turns off the main ui
         Timer.SetActive(false);
         ObjectiveTracker.SetActive(false);
@@ -54,10 +64,13 @@ public class WinScreenUpdated : MonoBehaviour
         Snacks.SetActive(false);
         Buttons.SetActive(false);
     }
-    private IEnumerator MoveUI()
+    private IEnumerator MoveUi()
     {
         float elapsedTime = 0;
+        CentipedeHead.GetComponent<RigidbodyMovement>().canMove = false;
         TurnOffUI();
+        TimeObject.SetActive(true);
+        GetComponent<AudioSource>().Play();
         while (elapsedTime < moveDuration)
         {
             // Interpolate the position between start and on-screen position based on the elapsed time
@@ -73,9 +86,9 @@ public class WinScreenUpdated : MonoBehaviour
         // Ensure that the UI reaches the exact on-screen position at the end
         uiContainer.anchoredPosition = onScreenPosition;
 
-        yield return new WaitForSeconds(1.0f);
+        //yield return new WaitForSeconds(1.0f);
 
-        TimeObject.SetActive(true);
+        
 
         yield return new WaitForSeconds(1.0f);
 

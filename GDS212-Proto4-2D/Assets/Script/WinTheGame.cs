@@ -21,11 +21,15 @@ public class WinTheGame : MonoBehaviour
         Debug.Log("hmm");
         if (keyItems.GetComponent<KeyItemTracker>().keyItems >= 3)
         {
+            /*
             gameUI.SetActive(false);
 
             pillBugWin.GetComponent<TextMeshProUGUI>().text = "You brought home snacks for all your friends and found " + pillBugCollected.GetComponent<PillBugTracker>().pillbugsCollected.ToString() + " new pill bug friends.";
             timerWin.GetComponent<TextMeshProUGUI>().text = timer.GetComponent<Timer>().timeInSeconds.ToString("0.0");
             winScreen.SetActive(true);
+            */
+
+            winScreen.GetComponent<WinScreenUpdated>().TurnOnWinScreen();
 
         }
     }
