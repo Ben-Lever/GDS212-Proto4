@@ -11,6 +11,11 @@ public class WinTheGame : MonoBehaviour
     {
         
     }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        Debug.Log("Exited safe area");
+        timer.GetComponent<Timer>().timerStarted = true;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("hmm");
@@ -19,7 +24,7 @@ public class WinTheGame : MonoBehaviour
             gameUI.SetActive(false);
 
             pillBugWin.GetComponent<TextMeshProUGUI>().text = "You brought home snacks for all your friends and found " + pillBugCollected.GetComponent<PillBugTracker>().pillbugsCollected.ToString() + " new pill bug friends.";
-            timerWin.GetComponent<TextMeshProUGUI>().text = timer.GetComponent<Timer>().time.ToString("0.0");
+            timerWin.GetComponent<TextMeshProUGUI>().text = timer.GetComponent<Timer>().timeInSeconds.ToString("0.0");
             winScreen.SetActive(true);
 
         }

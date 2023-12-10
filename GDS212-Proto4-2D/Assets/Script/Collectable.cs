@@ -33,10 +33,12 @@ public class Collectable : MonoBehaviour
                 audioSound.Play();
 
                 //Grant time bonus
-                timer.GetComponent<Timer>().time -= 15f;
+                //timer.GetComponent<Timer>().timeInSeconds -= 15f;
+                timer.GetComponent<Timer>().SubtractSeconds(15f);
 
                 //update text
-                pillbugCollector.GetComponent<PillBugTracker>().bugCollected();
+                //pillbugCollector.GetComponent<PillBugTracker>().bugCollected();
+                pillbugCollector.GetComponent<PillBugTracker>().snackCollected();
 
                 //Removes at end of frame to not throw errors
                 StartCoroutine(RemoveStuff(collectable[i], collectable));
