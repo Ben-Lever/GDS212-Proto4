@@ -1154,7 +1154,7 @@ GameObject:
   - component: {fileID: 516227809}
   - component: {fileID: 516227808}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Bird canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

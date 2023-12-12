@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Bird : MonoBehaviour
 {
+    public float birdArriveFrequency;
     private float timer;
     private Rigidbody2D rb;
     public Vector3 startSpot, driveBySlow, driveByFast;
@@ -30,8 +31,8 @@ public class Bird : MonoBehaviour
     //Every 10 seconds 1/3 chance for bird to attack
     public void BirdComing()
     {
-        //ERROR HERE MODUOLO CALLS MULTIPLE TIMES
-        if (((int)timer) % 300 == 0)
+        
+        if (((int)timer) % (30*birdArriveFrequency) == 0)
         {
             if (Random.Range(1, 1) == 1) {
                 Debug.Log("bird caw");

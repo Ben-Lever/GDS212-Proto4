@@ -9,11 +9,11 @@ public class Collectable : MonoBehaviour
     public GameObject particles;
     public GameObject timer, pillbugCollector, keyItemCollector;
 
-    private AudioSource audioSound;
+    public AudioSource pillBugPickupSFX, SnackPickUpSFX;
 
     private void Start()
     {
-        audioSound = GetComponent<AudioSource>();
+        //audioSound = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -30,7 +30,7 @@ public class Collectable : MonoBehaviour
                 Destroy(particleEffect, 10f);
 
                 //play sound
-                audioSound.Play();
+                SnackPickUpSFX.Play();
 
                 //Grant time bonus
                 //timer.GetComponent<Timer>().timeInSeconds -= 15f;
@@ -54,7 +54,7 @@ public class Collectable : MonoBehaviour
                 Destroy(particleEffect, 10f);
 
                 //play sound
-                audioSound.Play();
+                pillBugPickupSFX.Play();
 
                 //Grant time bonus
                 //timer.GetComponent<Timer>().time -= 15f;

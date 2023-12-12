@@ -97,9 +97,11 @@ public class RigidbodyMovement : MonoBehaviour
         }
 
         //negative just cos I don't wanna rewrite above stuff
-        rb.MoveRotation(rb.rotation - turnSpeed * legsTilt / 10);
+        if (canMove){
+            rb.MoveRotation(rb.rotation + turnSpeed * legsTilt / 10);
 
-        rb.MovePosition(transform.position + (transform.up * moveSpeed * legsActive / 20));
+            rb.MovePosition(transform.position + (transform.up * moveSpeed * legsActive / 20));
+        }
     }
 
     public void MoveOnOff()
