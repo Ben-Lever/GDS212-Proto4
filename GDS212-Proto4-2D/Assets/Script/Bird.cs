@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Bird : MonoBehaviour
 {
-    public float birdArriveFrequency;
+    public float birdArriveFrequency, timeToReact;
     private float timer;
     private Rigidbody2D rb;
     public Vector3 startSpot, driveBySlow, driveByFast;
@@ -45,7 +45,7 @@ public class Bird : MonoBehaviour
     //checks if player is moving during attack
     private IEnumerator IsPlayerMoving()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(timeToReact);
         if (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.LeftArrow)|| Input.GetKey(KeyCode.RightArrow))
         {
             DriveByFast();
