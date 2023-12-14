@@ -32,7 +32,7 @@ public class Bird : MonoBehaviour
     public void BirdComing()
     {
         
-        if (((int)timer) % (30*birdArriveFrequency) == 0)
+        if (((int)timer) % (60*birdArriveFrequency) == 0)
         {
             if (Random.Range(1, 1) == 1) {
                 Debug.Log("bird caw");
