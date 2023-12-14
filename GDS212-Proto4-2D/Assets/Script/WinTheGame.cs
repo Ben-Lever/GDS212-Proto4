@@ -5,7 +5,7 @@ using TMPro;
 
 public class WinTheGame : MonoBehaviour
 {
-    public GameObject gameUI, winScreen, keyItems, timer, timerWin, pillBugCollected, pillBugWin;
+    public GameObject gameUI, winScreen, keyItems, timer, timerWin, pillBugCollected, pillBugWin, bird;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,12 +13,14 @@ public class WinTheGame : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("Exited safe area");
+        //Debug.Log("Exited safe area");
+        bird.SetActive(true);
         timer.GetComponent<Timer>().timerStarted = true;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("hmm");
+        bird.SetActive(false);
+        //Debug.Log("hmm");
         if (keyItems.GetComponent<KeyItemTracker>().keyItems >= 3)
         {
             /*

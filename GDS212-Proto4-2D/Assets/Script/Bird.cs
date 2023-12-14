@@ -62,13 +62,13 @@ public class Bird : MonoBehaviour
     public void DriveBySafe()
     {
         Debug.Log("Slow bird");
-         = startSpot;
+        transform.position = startSpot + Camera.main.transform.position;
         rb.velocity = driveBySlow;
     }
 
     public void DriveByFast()
     {
-        transform.position = startSpot;
+        transform.position = startSpot + Camera.main.transform.position;
         rb.velocity = driveByFast;
         Debug.Log("Stun noise");
         stun.GetComponent<AudioSource>().Play();
