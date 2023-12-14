@@ -16,7 +16,8 @@ public class SwitchScenes : MonoBehaviour
 
     public void LoadScene()
     {
-        SceneManager.LoadScene("Greybox", LoadSceneMode.Single);
+        //SceneManager.LoadScene("Greybox", LoadSceneMode.Single);
+        SceneManager.LoadScene("Tutorial", LoadSceneMode.Single);
     }
 
     public void KillGame()
