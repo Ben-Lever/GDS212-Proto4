@@ -1,3 +1,4 @@
+using Fungus;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -61,7 +62,7 @@ public class Bird : MonoBehaviour
     public void DriveBySafe()
     {
         Debug.Log("Slow bird");
-        transform.position = startSpot;
+         = startSpot;
         rb.velocity = driveBySlow;
     }
 

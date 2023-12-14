@@ -65,32 +65,32 @@ public class RigidbodyMovement : MonoBehaviour
         legsTilt = 0;
         
 
-        if (Input.GetKey(KeyCode.Q))
-        {
-            legsActive++;
-            legsTilt--;
-        }
         if (Input.GetKey(KeyCode.W))
         {
             legsActive++;
-            legsTilt++;
+            legsTilt--;
         }
         if (Input.GetKey(KeyCode.A))
         {
             legsActive++;
-            legsTilt--;
+            legsTilt++;
         }
         if (Input.GetKey(KeyCode.S))
         {
             legsActive++;
+            legsTilt--;
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            legsActive++;
             legsTilt++;
         }
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.F))
         {
             legsActive++;
             legsTilt--;
         }
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.G))
         {
             legsActive++;
             legsTilt++;
